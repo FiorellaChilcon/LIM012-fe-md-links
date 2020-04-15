@@ -106,6 +106,23 @@ las necesidades del usuario:
 
 Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
 repositorio.
+### PSEUDO CODIGO
+```text
+mdLinks(path, options)
+if (path es de formato `Markdown`) {
+   Extraer los links que contiene
+   Convertirlos en objeto cada uno
+   Establecer sus propiedades:
+   - `href`: URL encontrada.
+   - `text`: Texto que aparecía dentro del link (`<a>`).
+   - `file`: Ruta del archivo donde se encontró el link.
+   return Array de objetos
+} else {
+ break;
+}
+
+```
+### BOILERPLATE
 ```text
 .
 ├── README.md
