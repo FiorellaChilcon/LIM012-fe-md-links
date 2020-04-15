@@ -110,6 +110,7 @@ repositorio.
 .
 ├── README.md
 ├── package.json
+├── .gitignore
 ├── src
 |  └── index.js
 └── test
