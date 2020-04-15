@@ -106,6 +106,15 @@ las necesidades del usuario:
 
 Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
 repositorio.
+```text
+.
+├── README.md
+├── package.json
+├── src
+|  └── index.js
+└── test
+   └── data.spec.js
+```
 
 Antes de comenzar a codear, es necesario que pensemos en la arquitectura y
 boilerplate del proyecto, por lo que `antes de que empieces tu planificacion
