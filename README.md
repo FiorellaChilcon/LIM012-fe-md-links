@@ -102,10 +102,8 @@ las necesidades del usuario:
 - El ejecutable implementa `--validate`.
 - El ejecutable implementa `--stats`.
 - El ejecutable implementa `--validate` y `--stats` juntos.
-
-
-Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
-repositorio.
+### DIAGRAMA DE FLUJO
+![diagrama](Diagram.png)
 ### PSEUDO CODIGO
 ```text
 const checkMdFiles = require(funcion que analiza mi archivo Markdown);
