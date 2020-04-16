@@ -108,25 +108,41 @@ Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
 repositorio.
 ### PSEUDO CODIGO
 ```text
+const checkMdFiles = require(funcion que analiza mi archivo Markdown);
 mdLinks(path, options)
-if (path es de formato `Markdown`) {
-   Extraer los links que contiene
-   Convertirlos en objeto cada uno
-   Establecer sus propiedades:
-   - `href`: URL encontrada.
-   - `text`: Texto que aparecía dentro del link (`<a>`).
-   - `file`: Ruta del archivo donde se encontró el link.
-   return Array de objetos
+new promise (resolve, reject) => {
+if(el folder contiene algun file de formado Markdown) {
+  resolve(checkMdFiles(array de files markdown)*)
 } else {
- break;
+  reject(console.log('el archino no es de formato Markdown'))
 }
-
+}
+*checkMdFiles(array de files markdown) {
+ Por cada file obtener sus propiedades:
+   { href: URL encontrada,
+     text: Texto que apare dentro del    link,
+     file: Ruta del archivo donde se encontró el link.}
+    let links =  Array de objetos
+    options.validate ? links.forEach((link) => {
+      verificar si es valido
+      link.status =  estado de la respuesta recibida a la petición HTTP de la  URL.
+      link.performance = (() => {
+        if (link.status !== 400) {
+          return 'ok'
+        } else {
+          return 'fail'
+        }
+      })();
+      return links
+    }): return links
+}
 ```
 ### BOILERPLATE
 ```text
 .
 ├── README.md
 ├── package.json
+├── package-lock.json
 ├── .gitignore
 ├── src
 |  └── index.js
