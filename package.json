@@ -2,7 +2,7 @@
   "name": "lim012-fe-md-links",
   "version": "1.0.0",
   "description": "Herramienta que lea y analiza archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas.",
-  "main": "src/index.js",
+  "main": "./src/mdLinks.js",
   "directories": {
     "test": "test"
   },
