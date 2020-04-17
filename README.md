@@ -2,13 +2,13 @@
 > Lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas.
 
 __Content__
-- [Diagrama de flujo] (#diagrama-de-flujo)
-- [Pseudo Codigo] (#pseudo-Codigo)
-- [Boilerplate] (#boilerplate)
-- [Install] (#install)
-- [Uso] (#usage-examples)
-  - [JavaScript API] (#javaScript-api)
-  - [CLI] (#cli)
+- [Diagrama de flujo](#diagrama-de-flujo)
+- [Pseudo Codigo](#pseudo-Codigo)
+- [Boilerplate](#boilerplate)
+- [Install](#install)
+- [Uso](#usage-examples)
+  - [JavaScript API](#javaScript-api)
+  - [CLI](#cli)
 ### DIAGRAMA DE FLUJO
 ![diagrama](Diagram.png)
 ### PSEUDO CODIGO
