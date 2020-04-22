@@ -29,6 +29,10 @@
   },
   "homepage": "https://github.com/fiorellaCS01/LIM012-fe-md-links#readme",
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
     "jest": "^25.3.0"
-  }
+  },
+  "dependencies": {}
 }
