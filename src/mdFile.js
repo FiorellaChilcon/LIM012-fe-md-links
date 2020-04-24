@@ -10,12 +10,12 @@ const getLinks = (files) => {
     filesPathArr = [files];
   }
   const result = [];
-  const regUrl = /\[(.*)\]/g;
-  const regText = /\((.+)\)/g;
+  const regUrl = /\((.+)\)/g;
+  const regText = /\[(.*)\]/g;
   filesPathArr.forEach((filePath) => {
     const content = fs.readFileSync(filePath, 'utf8');
     const mdLinks = content.match(regex);
-    const obj = mdLinks.map((link) => {
+    mdLinks.forEach((link) => {
       const url = link.match(regUrl)[0].slice(1, -1);
       const textL = link.match(regText)[0].slice(1, -1);
       const linkObj = {
@@ -23,9 +23,8 @@ const getLinks = (files) => {
         text: textL,
         file: filePath,
       };
-      return linkObj;
+      result.push(linkObj);
     });
-    result.push(obj);
   });
   return result;
 };

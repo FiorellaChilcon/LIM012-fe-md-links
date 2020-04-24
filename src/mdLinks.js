@@ -1,24 +1,38 @@
-//  -------------codigo OFICIAl  ------
-// module.exports = (path, options) => {
-//         // codigo
-//     }
 const fs = require('fs');
-const mdFile = require('../src/mdFile.js');
-const validate = require('../src/validate.js');
+const mdFile = require('./mdFile.js');
+const validate = require('./validate.js');
 
+// module.exports = (filePath, options) => {
+//   const verify = new Promise((resolve, reject) => {
+//     if (fs.existsSync(filePath)) {
+//       resolve(mdFile(filePath))
+//     } else {
+//       reject(new Error('No existe el archivo o directorio'))
+//     }
+//   });
+//   verify.then((result) => {
+//     if (options) {
+//       return validate(result).then((re) => {
+//         return console.log(re);
+//       });
+//     }
+//     return result;
+//   }).catch((errorMessage) => {
+//     return errorMessage;
+//   });
+// }
 const mdLinks = (filePath, options) => {
-  const verify = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     if (fs.existsSync(filePath)) {
-      resolve(mdFile(filePath))
+      if (options) {
+        mdFile(filePath).then((result) => { Promise.all(validate(result)).then((re) => { resolve(re) }) })
+      } else {
+        resolve(mdFile(filePath))
+      }
     } else {
       reject(new Error('No existe el archivo o directorio'))
     }
-  });
-  verify.then((result) => {
-    if (options.validate) {
-      const validation = validate(result);
-      return console.log(validation);
-    }
+  }).then((result) => {
     return console.log(result);
   }).catch((errorMessage) => {
     console.log(errorMessage);
