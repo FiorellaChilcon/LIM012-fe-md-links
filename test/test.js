@@ -74,7 +74,7 @@ describe('mdLinks', () => {
     return expect(mdLinks('src', { validate: true })).rejects.toMatch('El folder no contiene ningun archivo markdown');
   });
   it('deberia regresar el error cuando no se encuentra ningun link en el file', () => {
-    return expect(mdLinks('test/example/folder', { validate: true })).rejects.toMatch('El file no contiene ningun link');
+    return expect(mdLinks('test/example/otherfile.md', { validate: true })).rejects.toMatch('El file no contiene ningun link');
   });
   it('deberia regresar el error cuando el archivo no es Markdown', () => {
     return expect(mdLinks('src/mdLinks.js', { validate: true })).rejects.toMatch('El archivo no es de formato markdown');
