@@ -13,5 +13,5 @@ module.exports = (arrLinksProperties) => {
   const promises = arrLinksProperties.map((object) => {
     return validateLinks(object);
   });
-  return promises;
+  return Promise.all(promises);
 };

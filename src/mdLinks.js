@@ -2,40 +2,34 @@ const fs = require('fs');
 const mdFile = require('./mdFile.js');
 const validate = require('./validate.js');
 
-// module.exports = (filePath, options) => {
-//   const verify = new Promise((resolve, reject) => {
-//     if (fs.existsSync(filePath)) {
-//       resolve(mdFile(filePath))
-//     } else {
-//       reject(new Error('No existe el archivo o directorio'))
-//     }
-//   });
-//   verify.then((result) => {
-//     if (options) {
-//       return validate(result).then((re) => {
-//         return console.log(re);
-//       });
-//     }
-//     return result;
-//   }).catch((errorMessage) => {
-//     return errorMessage;
-//   });
-// }
+module.exports = (filePath, options) => {
+  return new Promise((resolve, reject) => {
+    if (fs.existsSync(filePath)) {
+      if (options) {
+        mdFile(filePath).then((result) => {resolve(validate(result))}).catch((e) => reject(e));
+      } else {
+        resolve(mdFile(filePath));
+      }
+    } else {
+      reject('No existe el archivo o directorio');
+    }
+  });
+}
 const mdLinks = (filePath, options) => {
   return new Promise((resolve, reject) => {
     if (fs.existsSync(filePath)) {
       if (options) {
-        mdFile(filePath).then((result) => { Promise.all(validate(result)).then((re) => { resolve(re) }) })
+        mdFile(filePath).then((result) => {resolve(validate(result))}).catch((e) => reject(e));
       } else {
-        resolve(mdFile(filePath))
+        resolve(mdFile(filePath));
       }
     } else {
-      reject(new Error('No existe el archivo o directorio'))
+      reject('No existe el archivo o directorio');
     }
   }).then((result) => {
     return console.log(result);
   }).catch((errorMessage) => {
-    console.log(errorMessage);
+    return console.log(errorMessage);
   });
 }
-mdLinks('test/example', { validate: true });
+mdLinks('src');
