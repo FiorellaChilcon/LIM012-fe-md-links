@@ -21,9 +21,9 @@ const getProperties = (filePath) => {
     const url = link.match(regUrl)[0].slice(1, -1);
     const urlText = link.match(regText)[0].slice(1, -1);
     const linkObj = {
+      file: filePath[1],
       href: url,
       text: urlText,
-      file: filePath[1],
     };
     return linkObj;
   });

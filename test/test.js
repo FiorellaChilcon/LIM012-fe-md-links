@@ -2,7 +2,6 @@ const mdLinks = require('../src/mdLinks.js');
 
 describe('mdLinks', () => {
   it('deberia devolver un arreglo de objetos, donde cada objeto representa un link', (done) => {
-    // expect.assertions(1);
     return mdLinks('test/example/hi.md').then((response) => {
       expect(response).toEqual(
         [

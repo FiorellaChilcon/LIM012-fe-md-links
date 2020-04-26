@@ -4,4 +4,4 @@ texto....................
 ### otro link
 [wikifail](https://es.wikipedia.org/wikifgg/Canis_lupus_familiaris) 
 [regex](https://www.mpi.nl/corpus/html/trova/ch01s04.html)
-[regex](https://github.com/nodeca/pica)
+[github page](https://github.com/nodeca/pica)
