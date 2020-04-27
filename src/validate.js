@@ -1,13 +1,12 @@
-const https = require('https');
+const fetch = require('node-fetch');
 
 const validateLinks = (object) => {
-  return new Promise((resolve, reject) => {
-    https.get(object.href, (res) => {
-      object.status = res.statusCode;
-      object.statusText = res.statusCode === 200 ? 'ok' : 'fail';
-      resolve(object);
+  return fetch('https://api.github.com/users/github')
+    .then((res) => {
+      object.status = res.status;
+      object.statusText = res.status ? 'ok' : 'fail';
+      return object;
     });
-  })
 }
 module.exports = (arrLinksProperties) => {
   const promises = arrLinksProperties.map((object) => {

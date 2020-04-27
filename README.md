@@ -3,45 +3,13 @@
 
 __Content__
 - [Diagrama de flujo](#diagrama-de-flujo)
-- [Pseudo Codigo](#pseudo-Codigo)
 - [Boilerplate](#boilerplate)
 - [Install](#install)
-- [Uso](#usage-examples)
+- [Uso](#ejemplo-de-uso)
   - [JavaScript API](#javaScript-api)
   - [CLI](#cli)
 ### DIAGRAMA DE FLUJO
 ![diagrama](Diagram.png)
-### PSEUDO CODIGO
-```text
-const checkMdFiles = require(funcion que analiza mi archivo Markdown);
-mdLinks(path, options)
-new promise (resolve, reject) => {
-if(el folder contiene algun file de formado Markdown) {
-  resolve(checkMdFiles(array de files markdown)*)
-} else {
-  reject(console.log('el archino no es de formato Markdown'))
-}
-}
-*checkMdFiles(array de files markdown) {
- Por cada file obtener sus propiedades:
-   { href: URL encontrada,
-     text: Texto que apare dentro del    link,
-     file: Ruta del archivo donde se encontró el link.}
-    let links =  Array de objetos
-    options.validate ? links.forEach((link) => {
-      verificar si es valido
-      link.status =  estado de la respuesta recibida a la petición HTTP de la  URL.
-      link.performance = (() => {
-        if (link.status !== 400) {
-          return 'ok'
-        } else {
-          return 'fail'
-        }
-      })();
-      return links
-    }): return links
-}
-```
 ### BOILERPLATE
 ```text
 .
@@ -52,7 +20,8 @@ if(el folder contiene algun file de formado Markdown) {
 ├── src
 |  ├── mdLinks.js
 |  ├── cli.js
-|  └── checkMdFiles.js
+|  └── mdFile.js
+|  └── validate.js
 └── test
    └── test.js
 ```
@@ -64,7 +33,7 @@ npm install --global fiorellaCS01/LIM012-fe-md-links
 
 ```
 
-### USAGE EXAMPLES
+### EJEMPLOS DE USO
 
 ### JavaScript API
 #### `mdLinks(path, options)`
