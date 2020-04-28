@@ -2,31 +2,42 @@ const mdLinks = require('../src/mdLinks.js');
 
 describe('mdLinks', () => {
   it('deberia devolver un arreglo de objetos, donde cada objeto representa un link', (done) => {
-    return mdLinks('test/example').then((response) => {
+    return mdLinks('test/example', { validate: true }).then((response) => {
       expect(response).toEqual(
         [
           {
+            file: 'test\\example\\hi.md',
             href: 'https://www.youtube.com/',
             text: 'video de youtube',
-            file: 'test\\example\\hi.md'
+            status: 200,
+            statusText: 'ok'
           },
           {
+            file: 'test\\example\\hi.md',
             href: 'https://stackoverflow.com/quesl',
             text: 'stackoverflow',
-            file: 'test\\example\\hi.md'
+            status: 404,
+            statusText: 'fail'
           },
           {
+            file: 'test\\example\\hi.md',
             href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
             text: 'regex',
-            file: 'test\\example\\hi.md'
+            status: 200,
+            statusText: 'ok'
           },
           {
+            file: 'test\\example\\hi.md',
             href: 'https://github.com/nodeca/pica',
             text: 'github page',
-            file: 'test\\example\\hi.md'
+            status: 200,
+            statusText: 'ok'
+          },
+          {
+            file: 'test\\example\\otherfile.md',
+            href: 'este file no contiene links'
           }
-        ]
-      );
+        ]);
       done();
     })
   });
@@ -35,24 +46,24 @@ describe('mdLinks', () => {
       expect(response).toEqual(
         [
           {
-            href: 'https://www.youtube.com/',
-            text: 'video de youtube',
-            file: 'test/example/hi.md'
-          },
-          {
-            href: 'https://stackoverflow.com/quesl',
-            text: 'stackoverflow',
             file: 'test/example/hi.md',
+            href: 'https://www.youtube.com/',
+            text: 'video de youtube'
           },
           {
+            file: 'test/example/hi.md',
+            href: 'https://stackoverflow.com/quesl',
+            text: 'stackoverflow'
+          },
+          {
+            file: 'test/example/hi.md',
             href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
-            text: 'regex',
-            file: 'test/example/hi.md'
+            text: 'regex'
           },
           {
+            file: 'test/example/hi.md',
             href: 'https://github.com/nodeca/pica',
-            text: 'github page',
-            file: 'test/example/hi.md'
+            text: 'github page'
           }
         ]
       );
@@ -65,30 +76,30 @@ describe('mdLinks', () => {
       expect(response).toEqual(
         [
           {
+            file: 'test/example/hi.md',
             href: 'https://www.youtube.com/',
             text: 'video de youtube',
-            file: 'test/example/hi.md',
             status: 200,
             statusText: 'ok'
           },
           {
+            file: 'test/example/hi.md',
             href: 'https://stackoverflow.com/quesl',
             text: 'stackoverflow',
-            file: 'test/example/hi.md',
             status: 404,
             statusText: 'fail'
           },
           {
+            file: 'test/example/hi.md',
             href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
             text: 'regex',
-            file: 'test/example/hi.md',
             status: 200,
             statusText: 'ok'
           },
           {
+            file: 'test/example/hi.md',
             href: 'https://github.com/nodeca/pica',
             text: 'github page',
-            file: 'test/example/hi.md',
             status: 200,
             statusText: 'ok'
           }

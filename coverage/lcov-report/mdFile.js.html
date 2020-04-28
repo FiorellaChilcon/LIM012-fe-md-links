@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.3% </span>
+                <span class="strong">97.83% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>36/37</span>
+                <span class='fraction'>45/46</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90% </span>
+                <span class="strong">93.75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/10</span>
+                <span class='fraction'>15/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.14% </span>
+                <span class="strong">97.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/35</span>
+                <span class='fraction'>42/43</span>
             </div>
         
             
@@ -112,15 +112,32 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -128,6 +145,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -139,6 +165,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,32 +196,46 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const fs = require('fs');
-&nbsp;
 const path = require('path');
 &nbsp;
-const numberOfLinks = (file) =&gt; {
+const numberOfLinks = (arrfiles) =&gt; {
   return new Promise((resolve, reject) =&gt; {
-    const regex = /\[(.*)\]\((.+)\)/gi;
-    const content = fs.readFileSync(file, 'utf8');
-    const mdLinks = content.match(regex);
-    if (mdLinks === null) {
+    const result = arrfiles.map((element) =&gt; {
+      const regex = /\[(.*)\]\((.+)\)/gi;
+      const content = fs.readFileSync(element, 'utf8');
+      let mdLinks = content.match(regex);
+      if (mdLinks === null) { mdLinks = 0 }
+      return [mdLinks, element];
+    });
+    if (result[0][0] === 0 &amp;&amp; arrfiles.length === 1) {
       reject(new Error('El file no contiene ningun link'));
     }
-    resolve([mdLinks, file]);
+    resolve(result);
   })
 };
-const getProperties = (filePath) =&gt; {
-  const regUrl = /\((.+)\)/g;
-  const regText = /\[(.*)\]/g;
-  const result = filePath[0].map((link) =&gt; {
-    const url = link.match(regUrl)[0].slice(1, -1);
-    const urlText = link.match(regText)[0].slice(1, -1);
-    const linkObj = {
-      file: filePath[1],
-      href: url,
-      text: urlText,
-    };
-    return linkObj;
+const getProperties = (arrMatches) =&gt; {
+  const result = [];
+  arrMatches.forEach((arr) =&gt; {
+    if (arr[0] === 0) {
+      const linkObj = {
+        file: arr[1],
+        href: 'este file no contiene links'
+      };
+      result.push(linkObj);
+    } else {
+      const regUrl = /\((.+)\)/g;
+      const regText = /\[(.*)\]/g;
+      arr[0].forEach((link) =&gt; {
+        const url = link.match(regUrl)[0].slice(1, -1);
+        const urlText = link.match(regText)[0].slice(1, -1);
+        const linkObj = {
+          file: arr[1],
+          href: url,
+          text: urlText,
+        };
+        result.push(linkObj);
+      });
+    }
   });
   return result;
 };
@@ -203,7 +245,7 @@ module.exports = (filePath) =&gt; {
       if (path.extname(filePath) !== '.md') {
         reject(new Error('El archivo no es de formato markdown'));
       }
-      resolve(filePath);
+      resolve([filePath]);
     } else {
       const getFile = new Promise((resolve2, reject2) =&gt; {
         fs.readdir(filePath, (err, content) =&gt; {
@@ -212,7 +254,7 @@ module.exports = (filePath) =&gt; {
           };
           const files = content.filter((file) =&gt; path.extname(file) === '.md');
           const filesPath = files.map((file) =&gt; path.join(filePath, file));
-          files.length !== 0 ? resolve2(filesPath[0]) : reject2(new Error('El folder no contiene ningun archivo markdown'));
+          files.length !== 0 ? resolve2(filesPath) : reject2(new Error('El folder no contiene ningun archivo markdown'));
         });
       });
       resolve(getFile);
@@ -229,7 +271,7 @@ module.exports = (filePath) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Apr 27 2020 12:51:45 GMT-0500 (hora estándar de Perú)
+                at Tue Apr 28 2020 13:32:42 GMT-0500 (hora estándar de Perú)
             </div>
         </div>
         <script src="prettify.js"></script>

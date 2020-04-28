@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fiorellaCS01/LIM012-fe-md-links.git"
+    "url": "git+https://github.com/FiorellaChilcon/LIM012-fe-md-links.git"
   },
   "keywords": [
     "leer",
@@ -29,9 +29,9 @@
     "md-links": "./src/cli.js"
   },
   "bugs": {
-    "url": "https://github.com/fiorellaCS01/LIM012-fe-md-links/issues"
+    "url": "https://github.com/FiorellaChilcon/LIM012-fe-md-links/issues"
   },
-  "homepage": "https://github.com/fiorellaCS01/LIM012-fe-md-links#readme",
+  "homepage": "https://github.com/FiorellaChilcon/LIM012-fe-md-links#readme",
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",

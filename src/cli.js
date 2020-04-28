@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const mdLinks = require('../src/mdLinks.js');
+const mdLinks = require('./mdLinks.js');
 
 const chalk = require('chalk');
 
@@ -25,22 +25,22 @@ const getkeyValues = (arrOfObjects) => {
 const statistics = (arrOfObjects) => {
     const links = arrOfObjects.map((element) => element['href']);
     const uniqueLinks = Array.from(new Set(links));
-    return chalk`Total: ${arrOfObjects.length}\nUnique: ${uniqueLinks.length}`;
+    return `${chalk.green('Total:')} ${arrOfObjects.length}\n${chalk.green('Unique:')} ${uniqueLinks.length}`;
 }
 const validationStats = (arrOfObjects) => {
     const stats = statistics(arrOfObjects);
     const links = arrOfObjects.map((element) => element['status']);
     const brokenLinks = links.filter((element) => element !== 200);
-    return `${stats}\nBroken: ${brokenLinks.length}`;
-}
-const help = chalk.green('md-links help\n\n')
-    + 'Estos son los comandos disponibles que puedes correr junto con md-links:\n '
-    + chalk.cyan.bold('--validate') + ': averigua si los links encontrados funcionan o no. \n '
-    + chalk.cyan.bold('--stats') + ': obtén estadísticas básicas sobre los links. \n '
-    + chalk.cyan.bold('--stats --validate') + ': obtén estadísticas que necesiten los resultados de la validación de los links. \n'
-    + 'El comportamiento por defecto '
-    + chalk.cyan('md-links ./some/example.md')
-    +' identifica el archivo markdown, lo analiza e imprime los links que vaya encontrando, junto con la ruta del archivo donde aparece y el texto que hay dentro del link (truncado a 50 caracteres).';
+    return `${stats}\n${chalk.yellow('Broken:')} ${brokenLinks.length}`;
+};
+const help = `${chalk.green('md-links help')}
+ Estos son los comandos disponibles que puedes correr junto con md-links:
+  ${chalk.cyan('--validate')}: averigua si los links encontrados funcionan o no.
+  ${chalk.cyan('--stats')}: obtén estadísticas básicas sobre los links.
+  ${chalk.cyan('--stats --validate')}: obtén estadísticas que necesiten los resultados de la validación de los links.
+ El comportamiento por defecto ${chalk.blue('md-links ./some/example.md')} identifica el archivo markdown, 
+ lo analiza e imprime los links que vaya encontrando, junto con la ruta del archivo donde aparece y
+ el texto que hay dentro del link (truncado a 50 caracteres).`;
 const result = (args) => {
     if (args.length === 3 && args[2] === '--help') {
         return new Promise((resolve) => { resolve(help) });
@@ -62,4 +62,4 @@ const result = (args) => {
 };
 result(arguments)
     .then((res) => console.log(res))
-    .catch((e) => console.log(chalk.red(e)));;
+    .catch((e) => console.log(chalk.red(e)));

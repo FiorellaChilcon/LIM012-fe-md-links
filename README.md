@@ -29,7 +29,7 @@ __Content__
 ## INSTALL
 ``` set up
 
-npm install --global fiorellaCS01/LIM012-fe-md-links
+npm install --global FiorellaChilcon/LIM012-fe-md-links
 
 ```
 
@@ -111,3 +111,10 @@ Total: 3
 Unique: 3
 Broken: 1
 ```
+
+##### `--help`
+
+```
+md-links --help
+```
+Con esta opción obtienes una guía de como usar las opciones disponibles.
