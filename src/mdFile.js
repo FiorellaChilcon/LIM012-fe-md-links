@@ -42,6 +42,18 @@ const getProperties = (arrMatches) => {
   });
   return result;
 };
+const walk = (dir) => {
+  let result = [];
+  fs.readdirSync(dir).forEach((element) => {
+    const elementPath = path.join(dir, element);
+    if (fs.statSync(elementPath).isFile()) {
+      result.push(elementPath);
+    } else {
+      result = result.concat(walk(elementPath));
+    };
+  });
+  return result;
+};
 module.exports = (filePath) => {
   return new Promise((resolve, reject) => {
     if (fs.statSync(filePath).isFile()) {
@@ -51,14 +63,8 @@ module.exports = (filePath) => {
       resolve([filePath]);
     } else {
       const getFile = new Promise((resolve2, reject2) => {
-        fs.readdir(filePath, (err, content) => {
-          if (err) {
-            reject(err);
-          };
-          const files = content.filter((file) => path.extname(file) === '.md');
-          const filesPath = files.map((file) => path.join(filePath, file));
-          files.length !== 0 ? resolve2(filesPath) : reject2(new Error('El folder no contiene ningun archivo markdown'));
-        });
+        const files = walk(filePath).filter((file) => path.extname(file) === '.md');
+        files.length !== 0 ? resolve2(files) : reject2(new Error('El folder no contiene ningun archivo markdown'));
       });
       resolve(getFile);
     }
