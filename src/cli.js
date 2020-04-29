@@ -9,15 +9,14 @@ const getkeyValues = (arrOfObjects) => {
     arrOfObjects.forEach((link) => {
         let properties = '';
         const linkKeys = Object.keys(link);
-        linkKeys.forEach((property) => {
-            if (link[property] === 'ok') {
-                properties += chalk.green(link[property]);
-            } else if (link[property] === 'fail') {
-                properties += chalk.red(link[property]);;
-            } else {
-                properties += `${link[property]} `;
-            }
-        });
+        properties += `${link['file']} ${chalk.cyan(link['href'])} `;
+        if (linkKeys.length > 2) {
+            properties += `${link['text']} `;
+        };
+        if (linkKeys.length === 5) {
+            properties += `${chalk.yellow(link['status'])} `;
+            link['statusText'] === 'ok' ?  properties += chalk.green(link['statusText']) : properties += chalk.red(link['statusText']);
+        };
         result += `${properties} \n`;
     });
     return result;

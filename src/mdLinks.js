@@ -5,12 +5,12 @@ const validate = require('./validate.js');
 
 module.exports = (filePath, options) => {
   return new Promise((resolve, reject) => {
-    let AbsoluteFilePath = filePath;
-    const verifyPath = path.isAbsolute(filePath);
+    let absoluteFilePath = filePath;
+    const verifyPath = path.isAbsolute(absoluteFilePath);
     if (!verifyPath) {
-      AbsoluteFilePath = path.resolve(filePath);
+      absoluteFilePath = path.resolve(filePath);
     }
-    if (fs.existsSync(AbsoluteFilePath)) {
+    if (fs.existsSync(absoluteFilePath)) {
       if (options) {
         mdFile(filePath)
           .then((result) => {
@@ -24,3 +24,4 @@ module.exports = (filePath, options) => {
     }
   });
 };
+// console.log(path.resolve('test/folderToTest'));

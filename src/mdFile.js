@@ -4,7 +4,7 @@ const path = require('path');
 const numberOfLinks = (arrfiles) => {
   return new Promise((resolve, reject) => {
     const result = arrfiles.map((element) => {
-      const regex = /\[(.*)\]\((.+)\)/gi;
+      const regex = /\[(.*)\]\(((?!#).+)\)/gi;
       const content = fs.readFileSync(element, 'utf8');
       let mdLinks = content.match(regex);
       if (mdLinks === null) { mdLinks = 0 }

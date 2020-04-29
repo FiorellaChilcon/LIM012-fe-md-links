@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "npm run lint && jest --coverage",
+    "test": "jest --coverage",
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/"
   },
   "repository": {

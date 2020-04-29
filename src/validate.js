@@ -4,7 +4,7 @@ const validateLinks = (object) => {
   return fetch(object.href)
     .then((res) => {
       object.status = res.status;
-      object.statusText = res.status === 200 ? 'ok' : 'fail';
+      object.statusText = res.ok ? 'ok' : 'fail';
       return object;
     });
 }

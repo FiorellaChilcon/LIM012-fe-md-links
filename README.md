@@ -9,7 +9,7 @@ __Content__
   - [JavaScript API](#javaScript-api)
   - [CLI](#cli)
 ### DIAGRAMA DE FLUJO
-![diagrama](Diagram.png)
+![diagrama](img/Diagram.png)
 ### BOILERPLATE
 ```text
 .
@@ -64,7 +64,12 @@ mdLinks("./some/example.md", { validate: true })
 ### CLI
 Se ejecuta de la siguiente manera a través de la terminal:
 
-`md-links <path-to-file> [options]`
+```
+$ md-links ./some/example.md
+```
+
+![diagrama](img/byDefault.PNG)
+
 
 ```cli
 $ md-links ./some/example.md
@@ -81,6 +86,12 @@ Por defecto no valida si las URLs responden ok o no, solo identifica el archivo 
 Con la opción `--validate`, el módulo hace una petición HTTP para
 averiguar si el link funciona o no.
 
+```
+$ md-links ./some/example.md --validate
+```
+
+![diagrama](img/validate.PNG)
+
 ``` validate
 $ md-links ./some/example.md --validate
 ./some/example.md http://algo.com/2/3/ ok 200 Link a algo
@@ -96,6 +107,12 @@ la URL, así como el status de la respuesta recibida a la petición HTTP a dicha
 Con la opción `--stats` el output será un texto con estadísticas
 básicas sobre los links.
 
+```
+$ md-links ./some/example.md --stats
+```
+
+![diagrama](img/stats.PNG)
+
 ```sh
 $ md-links ./some/example.md --stats
 Total: 3
@@ -104,6 +121,13 @@ Unique: 3
 
 También se puede combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación.
+
+
+```
+$ md-links ./some/example.md --stats --validate
+```
+
+![diagrama](img/validatestats.PNG)
 
 ```sh
 $ md-links ./some/example.md --stats --validate
