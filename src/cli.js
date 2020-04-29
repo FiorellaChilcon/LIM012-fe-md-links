@@ -10,12 +10,12 @@ const getkeyValues = (arrOfObjects) => {
         let properties = '';
         const linkKeys = Object.keys(link);
         properties += `${link['file']} ${chalk.cyan(link['href'])} `;
+        if (linkKeys.length === 5) {
+            link['statusText'] === 'ok' ?  properties += chalk.green(link['statusText']) : properties += chalk.red(link['statusText']);
+            properties += ` ${chalk.yellow(link['status'])} `;
+        };
         if (linkKeys.length > 2) {
             properties += `${link['text']} `;
-        };
-        if (linkKeys.length === 5) {
-            properties += `${chalk.yellow(link['status'])} `;
-            link['statusText'] === 'ok' ?  properties += chalk.green(link['statusText']) : properties += chalk.red(link['statusText']);
         };
         result += `${properties} \n`;
     });

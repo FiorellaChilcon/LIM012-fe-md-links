@@ -65,18 +65,11 @@ mdLinks("./some/example.md", { validate: true })
 Se ejecuta de la siguiente manera a través de la terminal:
 
 ```
-$ md-links ./some/example.md
+$ md-links test/folderToTest/example
 ```
 
 ![diagrama](img/byDefault.PNG)
 
-
-```cli
-$ md-links ./some/example.md
-./some/example.md http://algo.com/2/3/ Link a algo
-./some/example.md https://otra-cosa.net/algun-doc.html algún doc
-./some/example.md http://google.com/ Google
-```
 Por defecto no valida si las URLs responden ok o no, solo identifica el archivo markdown, lo analiza e imprime los links que vaya encontrando, junto con la ruta del archivo donde aparece y el texto que hay dentro del link.
 
 #### Options
@@ -87,17 +80,10 @@ Con la opción `--validate`, el módulo hace una petición HTTP para
 averiguar si el link funciona o no.
 
 ```
-$ md-links ./some/example.md --validate
+$ md-links test/folderToTest/example --validate
 ```
 
 ![diagrama](img/validate.PNG)
-
-``` validate
-$ md-links ./some/example.md --validate
-./some/example.md http://algo.com/2/3/ ok 200 Link a algo
-./some/example.md https://otra-cosa.net/algun-doc.html fail 404 algún doc
-./some/example.md http://google.com/ ok 301 Google
-```
 
 El output en este caso incluye la palabra `ok` o `fail` después de
 la URL, así como el status de la respuesta recibida a la petición HTTP a dicha URL.
@@ -113,12 +99,6 @@ $ md-links ./some/example.md --stats
 
 ![diagrama](img/stats.PNG)
 
-```sh
-$ md-links ./some/example.md --stats
-Total: 3
-Unique: 3
-```
-
 También se puede combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación.
 
@@ -128,13 +108,6 @@ $ md-links ./some/example.md --stats --validate
 ```
 
 ![diagrama](img/validatestats.PNG)
-
-```sh
-$ md-links ./some/example.md --stats --validate
-Total: 3
-Unique: 3
-Broken: 1
-```
 
 ##### `--help`
 
