@@ -1,30 +1,15 @@
 # mdLinks
+![Mrkd](img/markdown.PNG)
+
 > Lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas.
 
 __Content__
-- [Diagrama de flujo](#diagrama-de-flujo)
-- [Boilerplate](#boilerplate)
 - [Install](#install)
 - [Uso](#ejemplo-de-uso)
   - [JavaScript API](#javaScript-api)
   - [CLI](#cli)
-### DIAGRAMA DE FLUJO
-![diagrama](img/Diagram.png)
-### BOILERPLATE
-```text
-.
-├── README.md
-├── package.json
-├── package-lock.json
-├── .gitignore
-├── src
-|  ├── mdLinks.js
-|  ├── cli.js
-|  └── mdFile.js
-|  └── validate.js
-└── test
-   └── test.js
-```
+- [Diagrama de flujo](#diagrama-de-flujo)
+- [Boilerplate](#boilerplate)
 
 ## INSTALL
 ``` set up
@@ -114,4 +99,23 @@ $ md-links ./some/example.md --stats --validate
 ```
 md-links --help
 ```
+
 Con esta opción obtienes una guía de como usar las opciones disponibles.
+
+### DIAGRAMA DE FLUJO
+![diagrama](img/Diagram.png)
+### BOILERPLATE
+```text
+.
+├── README.md
+├── package.json
+├── package-lock.json
+├── .gitignore
+├── src
+|  ├── mdLinks.js
+|  ├── cli.js
+|  └── mdFile.js
+|  └── validate.js
+└── test
+   └── test.js
+```
