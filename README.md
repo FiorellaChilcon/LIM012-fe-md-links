@@ -1,5 +1,5 @@
 # mdLinks
-![Mrkd](img/markdown.PNG)
+![Mrkd](img/markdown.png)
 
 > Lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas.
 
