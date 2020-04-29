@@ -3,13 +3,10 @@ const path = require('path');
 const mdFile = require('./mdFile.js');
 const validate = require('./validate.js');
 
+const toAbsolute = (dir) => (path.isAbsolute(dir) ? dir : path.resolve(dir));
 module.exports = (filePath, options) => {
   return new Promise((resolve, reject) => {
-    let absoluteFilePath = filePath;
-    const verifyPath = path.isAbsolute(absoluteFilePath);
-    if (!verifyPath) {
-      absoluteFilePath = path.resolve(filePath);
-    }
+    const absoluteFilePath = toAbsolute(filePath);
     if (fs.existsSync(absoluteFilePath)) {
       if (options) {
         mdFile(filePath)
@@ -24,4 +21,3 @@ module.exports = (filePath, options) => {
     }
   });
 };
-// console.log(path.resolve('test/folderToTest'));

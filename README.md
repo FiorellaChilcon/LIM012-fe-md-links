@@ -1,7 +1,8 @@
 # mdLinks
-![Mrkd](img/markdown.png)
 
 > Lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas.
+
+![Mrkd](img/markdown.png)
 
 __Content__
 - [Install](#install)
@@ -18,7 +19,7 @@ npm install --global FiorellaChilcon/LIM012-fe-md-links
 
 ```
 
-### EJEMPLOS DE USO
+## EJEMPLOS DE USO
 
 ### JavaScript API
 #### `mdLinks(path, options)`
@@ -59,7 +60,7 @@ Por defecto no valida si las URLs responden ok o no, solo identifica el archivo 
 
 #### Options
 
-##### `--validate`
+> --validate
 
 Con la opción `--validate`, el módulo hace una petición HTTP para
 averiguar si el link funciona o no.
@@ -73,7 +74,7 @@ $ md-links test/folderToTest/example --validate
 El output en este caso incluye la palabra `ok` o `fail` después de
 la URL, así como el status de la respuesta recibida a la petición HTTP a dicha URL.
 
-##### `--stats`
+> --stats
 
 Con la opción `--stats` el output será un texto con estadísticas
 básicas sobre los links.
@@ -94,7 +95,7 @@ $ md-links ./some/example.md --stats --validate
 
 ![diagrama](img/validatestats.PNG)
 
-##### `--help`
+> --help
 
 ```
 md-links --help

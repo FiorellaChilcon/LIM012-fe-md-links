@@ -2,42 +2,45 @@ const mdLinks = require('../src/mdLinks.js');
 
 describe('mdLinks', () => {
   it('deberia devolver un arreglo de objetos, donde cada objeto representa un link', (done) => {
-    return mdLinks('test/folderToTest', { validate: true }).then((response) => {
+    return mdLinks('C:/Users/SCHILCON/Desktop/LABORATORIA/LIM012-fe-md-links/test/folderToTest', { validate: true }).then((response) => {
       expect(response).toEqual(
         [
           {
-            file: 'test\\folderToTest\\example\\hi.md',
+            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\example\\hi.md',
             href: 'https://www.youtube.com/',
             text: 'video de youtube',
             status: 200,
             statusText: 'ok'
           },
           {
-            file: 'test\\folderToTest\\example\\hi.md',
+            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\example\\hi.md',
             href: 'https://stackoverflow.com/quesl',
             text: 'stackoverflow',
             status: 404,
             statusText: 'fail'
           },
           {
-            file: 'test\\folderToTest\\example\\hi.md',
+            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\example\\hi.md',
             href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
             text: 'regex',
             status: 200,
             statusText: 'ok'
           },
           {
-            file: 'test\\folderToTest\\example\\hi.md',
+            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\example\\hi.md',
             href: 'https://github.com/nodeca/pica',
             text: 'github page',
             status: 200,
             statusText: 'ok'
           },
           {
-            file: 'test\\folderToTest\\example\\otherfile.md',
+            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\example\\otherfile.md',
             href: 'este file no contiene links'
           },
-          { file: 'test\\folderToTest\\mark.md', href: 'este file no contiene links' }
+          {
+            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\mark.md',
+            href: 'este file no contiene links'
+          }
         ]);
       done();
     })
