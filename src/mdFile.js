@@ -19,9 +19,10 @@ const numberOfLinks = (arrfiles) => {
 const getProperties = (arrMatches) => {
   const result = [];
   arrMatches.forEach((arr) => {
+    const filePath = arr[1].replace(process.cwd(), '').slice(1);
     if (arr[0] === 0) {
       const linkObj = {
-        file: arr[1],
+        file: filePath,
         href: 'este file no contiene links'
       };
       result.push(linkObj);
@@ -32,7 +33,7 @@ const getProperties = (arrMatches) => {
         const url = link.match(regUrl)[0].slice(1, -1);
         const urlText = link.match(regText)[0].slice(1, -1);
         const linkObj = {
-          file: arr[1],
+          file: filePath,
           href: url,
           text: urlText,
         };
@@ -64,7 +65,9 @@ module.exports = (filePath) => {
     } else {
       const getFile = new Promise((resolve2, reject2) => {
         const files = walk(filePath).filter((file) => path.extname(file) === '.md');
-        files.length !== 0 ? resolve2(files) : reject2(new Error('El folder no contiene ningun archivo markdown'));
+        files.length !== 0 ?
+          resolve2(files) :
+          reject2(new Error('El folder no contiene ningun archivo markdown'));
       });
       resolve(getFile);
     }

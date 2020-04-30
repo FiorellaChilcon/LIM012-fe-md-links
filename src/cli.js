@@ -31,8 +31,7 @@ const statistics = (arrOfObjects) => {
 const validationStats = (arrOfObjects) => {
     const stats = statistics(arrOfObjects);
     const linksWithStatus = arrOfObjects.filter((element) => Object.keys(element).length > 2);
-    const links = linksWithStatus.map((element) => element['status']);
-    const brokenLinks = links.filter((element) => element !== 200);
+    const brokenLinks = linksWithStatus.filter((element) => element['status'] !== 200);
     return `${stats}\n${chalk.yellow('Broken:')} ${brokenLinks.length}`;
 };
 const help = `${chalk.green('md-links help')}

@@ -9,12 +9,14 @@ module.exports = (filePath, options) => {
     const absoluteFilePath = toAbsolute(filePath);
     if (fs.existsSync(absoluteFilePath)) {
       if (options) {
-        mdFile(filePath)
-          .then((result) => {
-            resolve(validate(result));
-          }).catch((e) => reject(e));
+        options.validate === true ?
+          mdFile(absoluteFilePath)
+            .then((result) => {
+              resolve(validate(result));
+            }).catch((e) => reject(e)) :
+          reject(new Error('Argumento `options` inválido, debería ser igual a: { validate: true }'));
       } else {
-        resolve(mdFile(filePath));
+        resolve(mdFile(absoluteFilePath));
       }
     } else {
       reject(new Error('No existe el archivo o directorio'));

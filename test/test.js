@@ -6,39 +6,39 @@ describe('mdLinks', () => {
       expect(response).toEqual(
         [
           {
-            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\example\\hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://www.youtube.com/',
             text: 'video de youtube',
             status: 200,
             statusText: 'ok'
           },
           {
-            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\example\\hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://stackoverflow.com/quesl',
             text: 'stackoverflow',
             status: 404,
             statusText: 'fail'
           },
           {
-            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\example\\hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
             text: 'regex',
             status: 200,
             statusText: 'ok'
           },
           {
-            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\example\\hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://github.com/nodeca/pica',
             text: 'github page',
             status: 200,
             statusText: 'ok'
           },
           {
-            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\example\\otherfile.md',
+            file: 'test\\folderToTest\\example\\otherfile.md',
             href: 'este file no contiene links'
           },
           {
-            file: 'C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest\\mark.md',
+            file: 'test\\folderToTest\\mark.md',
             href: 'este file no contiene links'
           }
         ]);
@@ -50,22 +50,22 @@ describe('mdLinks', () => {
       expect(response).toEqual(
         [
           {
-            file: 'test/folderToTest/example/hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://www.youtube.com/',
             text: 'video de youtube'
           },
           {
-            file: 'test/folderToTest/example/hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://stackoverflow.com/quesl',
             text: 'stackoverflow'
           },
           {
-            file: 'test/folderToTest/example/hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
             text: 'regex'
           },
           {
-            file: 'test/folderToTest/example/hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://github.com/nodeca/pica',
             text: 'github page'
           }
@@ -80,28 +80,28 @@ describe('mdLinks', () => {
       expect(response).toEqual(
         [
           {
-            file: 'test/folderToTest/example/hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://www.youtube.com/',
             text: 'video de youtube',
             status: 200,
             statusText: 'ok'
           },
           {
-            file: 'test/folderToTest/example/hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://stackoverflow.com/quesl',
             text: 'stackoverflow',
             status: 404,
             statusText: 'fail'
           },
           {
-            file: 'test/folderToTest/example/hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
             text: 'regex',
             status: 200,
             statusText: 'ok'
           },
           {
-            file: 'test/folderToTest/example/hi.md',
+            file: 'test\\folderToTest\\example\\hi.md',
             href: 'https://github.com/nodeca/pica',
             text: 'github page',
             status: 200,
@@ -125,5 +125,9 @@ describe('mdLinks', () => {
   it('deberia regresar el error cuando el archivo no es Markdown', () => {
     const error = new Error('El archivo no es de formato markdown');
     return expect(mdLinks('src/mdLinks.js', { validate: true })).rejects.toEqual(error);
+  });
+  it('deberia regresar el error cuando el argumento `options` es ingresado incorrectamente', () => {
+    const error = new Error('Argumento `options` inválido, debería ser igual a: { validate: true }');
+    return expect(mdLinks('src/mdLinks.js', { valid: true })).rejects.toEqual(error);
   });
 });

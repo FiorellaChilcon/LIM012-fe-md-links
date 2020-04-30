@@ -2,11 +2,11 @@
 
 > Lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas.
 
-![Mrkd](img/markdown.png)
+![markdown](https://user-images.githubusercontent.com/58056552/80736460-cb33e900-8ad7-11ea-8ba6-2e120031dc18.png)
 
 __Content__
 - [Install](#install)
-- [Uso](#ejemplo-de-uso)
+- [Ejemplos de uso](#ejemplos-de-uso)
   - [JavaScript API](#javaScript-api)
   - [CLI](#cli)
 - [Diagrama de flujo](#diagrama-de-flujo)
@@ -54,7 +54,7 @@ Se ejecuta de la siguiente manera a través de la terminal:
 $ md-links test/folderToTest/example
 ```
 
-![diagrama](img/byDefault.PNG)
+![byDefault](https://user-images.githubusercontent.com/58056552/80735307-1ea53780-8ad6-11ea-9650-11d6f107c5a0.PNG)
 
 Por defecto no valida si las URLs responden ok o no, solo identifica el archivo markdown, lo analiza e imprime los links que vaya encontrando, junto con la ruta del archivo donde aparece y el texto que hay dentro del link.
 
@@ -69,7 +69,7 @@ averiguar si el link funciona o no.
 $ md-links test/folderToTest/example --validate
 ```
 
-![diagrama](img/validate.PNG)
+![validate](https://user-images.githubusercontent.com/58056552/80736234-72fce700-8ad7-11ea-8516-cc6f177bc9a5.PNG)
 
 El output en este caso incluye la palabra `ok` o `fail` después de
 la URL, así como el status de la respuesta recibida a la petición HTTP a dicha URL.
@@ -83,7 +83,8 @@ básicas sobre los links.
 $ md-links test/folderToTest/example --stats
 ```
 
-![diagrama](img/stats.PNG)
+![stats](https://user-images.githubusercontent.com/58056552/80736299-8dcf5b80-8ad7-11ea-9dcd-54ffcc06e07f.PNG)
+
 
 También se puede combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación.
@@ -93,7 +94,8 @@ necesiten de los resultados de la validación.
 $ md-links test/folderToTest/example --stats --validate
 ```
 
-![diagrama](img/validatestats.PNG)
+![validatestats](https://user-images.githubusercontent.com/58056552/80736346-9f186800-8ad7-11ea-8157-1258d9a54835.PNG)
+
 
 > --help
 
@@ -104,7 +106,8 @@ md-links --help
 Con esta opción obtienes una guía de como usar las opciones disponibles.
 
 ### DIAGRAMA DE FLUJO
-![diagrama](img/Diagram.png)
+![Diagram](https://user-images.githubusercontent.com/58056552/80736415-b8211900-8ad7-11ea-8a36-454a7177f7a6.png)
+
 ### BOILERPLATE
 ```text
 .
