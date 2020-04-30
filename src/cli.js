@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const mdLinks = require('./mdLinks.js');
 
 const chalk = require('chalk');
@@ -22,13 +23,15 @@ const getkeyValues = (arrOfObjects) => {
     return result;
 };
 const statistics = (arrOfObjects) => {
-    const links = arrOfObjects.map((element) => element['href']);
+    const linksWithStatus = arrOfObjects.filter((element) => Object.keys(element).length > 2);
+    const links = linksWithStatus.map((element) => element['href']);
     const uniqueLinks = Array.from(new Set(links));
-    return `${chalk.green('Total:')} ${arrOfObjects.length}\n${chalk.green('Unique:')} ${uniqueLinks.length}`;
+    return `${chalk.green('Total:')} ${linksWithStatus.length}\n${chalk.green('Unique:')} ${uniqueLinks.length}`;
 }
 const validationStats = (arrOfObjects) => {
     const stats = statistics(arrOfObjects);
-    const links = arrOfObjects.map((element) => element['status']);
+    const linksWithStatus = arrOfObjects.filter((element) => Object.keys(element).length > 2);
+    const links = linksWithStatus.map((element) => element['status']);
     const brokenLinks = links.filter((element) => element !== 200);
     return `${stats}\n${chalk.yellow('Broken:')} ${brokenLinks.length}`;
 };

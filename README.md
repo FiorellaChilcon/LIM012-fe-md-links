@@ -80,7 +80,7 @@ Con la opción `--stats` el output será un texto con estadísticas
 básicas sobre los links.
 
 ```
-$ md-links ./some/example.md --stats
+$ md-links test/folderToTest/example --stats
 ```
 
 ![diagrama](img/stats.PNG)
@@ -90,7 +90,7 @@ necesiten de los resultados de la validación.
 
 
 ```
-$ md-links ./some/example.md --stats --validate
+$ md-links test/folderToTest/example --stats --validate
 ```
 
 ![diagrama](img/validatestats.PNG)
