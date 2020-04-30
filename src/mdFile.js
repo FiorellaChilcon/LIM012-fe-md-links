@@ -7,14 +7,14 @@ const numberOfLinks = (arrfiles) => {
       const regex = /\[(.*)\]\(((?!#).+)\)/gi;
       const content = fs.readFileSync(element, 'utf8');
       let mdLinks = content.match(regex);
-      if (mdLinks === null) { mdLinks = 0 }
+      if (mdLinks === null) { mdLinks = 0; }
       return [mdLinks, element];
     });
     if (result[0][0] === 0 && arrfiles.length === 1) {
       reject(new Error('El file no contiene ningun link'));
     }
     resolve(result);
-  })
+  });
 };
 const getProperties = (arrMatches) => {
   const result = [];
@@ -23,7 +23,7 @@ const getProperties = (arrMatches) => {
     if (arr[0] === 0) {
       const linkObj = {
         file: filePath,
-        href: 'este file no contiene links'
+        href: 'este file no contiene links',
       };
       result.push(linkObj);
     } else {
@@ -51,7 +51,7 @@ const walk = (dir) => {
       result.push(elementPath);
     } else {
       result = result.concat(walk(elementPath));
-    };
+    }
   });
   return result;
 };
@@ -65,9 +65,11 @@ module.exports = (filePath) => {
     } else {
       const getFile = new Promise((resolve2, reject2) => {
         const files = walk(filePath).filter((file) => path.extname(file) === '.md');
-        files.length !== 0 ?
-          resolve2(files) :
+        if (files.length !== 0) {
+          resolve2(files);
+        } else {
           reject2(new Error('El folder no contiene ningun archivo markdown'));
+        }
       });
       resolve(getFile);
     }
