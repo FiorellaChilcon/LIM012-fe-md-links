@@ -19,7 +19,8 @@ const numberOfLinks = (arrfiles) => {
 const getProperties = (arrMatches) => {
   const result = [];
   arrMatches.forEach((arr) => {
-    const filePath = arr[1].replace(process.cwd(), '').slice(1);
+    const getPath = arr[1].replace(process.cwd(), '').slice(1);
+    const filePath = getPath.indexOf('\\') === -1 ? getPath : getPath.replace(/\\/g, '/');
     if (arr[0] === 0) {
       const linkObj = {
         file: filePath,

@@ -50,11 +50,7 @@ mdLinks("./some/example.md", { validate: true })
 ### CLI
 Se ejecuta de la siguiente manera a través de la terminal:
 
-```
-$ md-links test/folderToTest/example
-```
-
-![byDefault](https://user-images.githubusercontent.com/58056552/80735307-1ea53780-8ad6-11ea-9650-11d6f107c5a0.PNG)
+![byDefault](https://user-images.githubusercontent.com/58056552/80850029-682d7980-8bdf-11ea-8a7f-a140b321d184.PNG)
 
 Por defecto no valida si las URLs responden ok o no, solo identifica el archivo markdown, lo analiza e imprime los links que vaya encontrando, junto con la ruta del archivo donde aparece y el texto que hay dentro del link.
 
@@ -65,11 +61,7 @@ Por defecto no valida si las URLs responden ok o no, solo identifica el archivo 
 Con la opción `--validate`, el módulo hace una petición HTTP para
 averiguar si el link funciona o no.
 
-```
-$ md-links test/folderToTest/example --validate
-```
-
-![validate](https://user-images.githubusercontent.com/58056552/80736234-72fce700-8ad7-11ea-8516-cc6f177bc9a5.PNG)
+![validate](https://user-images.githubusercontent.com/58056552/80850052-87c4a200-8bdf-11ea-8896-480bce628709.PNG)
 
 El output en este caso incluye la palabra `ok` o `fail` después de
 la URL, así como el status de la respuesta recibida a la petición HTTP a dicha URL.
@@ -79,23 +71,12 @@ la URL, así como el status de la respuesta recibida a la petición HTTP a dicha
 Con la opción `--stats` el output será un texto con estadísticas
 básicas sobre los links.
 
-```
-$ md-links test/folderToTest/example --stats
-```
-
-![stats](https://user-images.githubusercontent.com/58056552/80736299-8dcf5b80-8ad7-11ea-9dcd-54ffcc06e07f.PNG)
-
+![stats](https://user-images.githubusercontent.com/58056552/80850058-99a64500-8bdf-11ea-84e9-963f59ad1edd.PNG)
 
 También se puede combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación.
 
-
-```
-$ md-links test/folderToTest/example --stats --validate
-```
-
-![validatestats](https://user-images.githubusercontent.com/58056552/80736346-9f186800-8ad7-11ea-8157-1258d9a54835.PNG)
-
+![validatestats](https://user-images.githubusercontent.com/58056552/80850067-a9be2480-8bdf-11ea-9a23-66c8722d8de6.PNG)
 
 > --help
 
