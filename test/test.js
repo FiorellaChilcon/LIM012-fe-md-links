@@ -1,8 +1,10 @@
+const path = require('path');
 const mdLinks = require('../src/mdLinks.js');
 
 describe('mdLinks', () => {
   it('deberia devolver un arreglo de objetos, donde cada objeto representa un link', (done) => {
-    return mdLinks('C:\\Users\\SCHILCON\\Desktop\\LABORATORIA\\LIM012-fe-md-links\\test\\folderToTest', { validate: true }).then((response) => {
+    const pathFolder = path.join(process.cwd(), 'test\\folderToTest');
+    return mdLinks(pathFolder, { validate: true }).then((response) => {
       expect(response).toEqual(
         [
           {
