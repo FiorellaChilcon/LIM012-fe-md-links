@@ -15,7 +15,7 @@ __Content__
 ## INSTALL
 ``` set up
 
-npm install fiorella-mdlinks
+npm install --global FiorellaChilcon/LIM012-fe-md-links
 
 ```
 
@@ -32,7 +32,7 @@ npm install fiorella-mdlinks
     encontrados.
 
 ```js
-const mdLinks = require("fiorella-mdlinks");
+const mdLinks = require("mdLinks");
 
 mdLinks("./some/example.md")
   .then(links => {
