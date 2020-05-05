@@ -1,5 +1,5 @@
 {
-  "name": "lim012-fe-md-links",
+  "name": "fiorella-mdlinks",
   "version": "1.0.0",
   "description": "Herramienta que lea y analiza archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas.",
   "main": "./src/mdLinks.js",
