@@ -250,16 +250,16 @@ pendientes de tu proyecto anterior.
 - [ ] Recursión
 
 ### Node
-- [ ] Sistema de archivos
-- [ ] package.json
-- [ ] crear modules
-- [ ] Instalar y usar modules
+- [x] Sistema de archivos
+- [x] package.json
+- [x] crear modules
+- [x] Instalar y usar modules
 - [ ] npm scripts
-- [ ] CLI (Command Line Interface - Interfaz de Línea de Comando)
+- [x] CLI (Command Line Interface - Interfaz de Línea de Comando)
 
 ### Testing
-- [ ] Testeo de tus funciones
-- [ ] Testeo asíncrono
+- [x] Testeo de tus funciones
+- [x] Testeo asíncrono
 - [ ] Uso de librerias de Mock
 - [ ] Mocks manuales
 - [ ] Testeo para multiples Sistemas Operativos
