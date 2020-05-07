@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1588696831836" clover="3.2.0">
-  <project timestamp="1588696831871" name="All files">
+<coverage generated="1588869823961" clover="3.2.0">
+  <project timestamp="1588869823962" name="All files">
     <metrics statements="79" coveredstatements="79" conditionals="30" coveredconditionals="29" methods="23" coveredmethods="23" elements="132" coveredelements="131" complexity="0" loc="79" ncloc="79" packages="1" files="3" classes="3"/>
     <file name="mdFile.js" path="C:\Users\SCHILCON\Desktop\LABORATORIA\LIM012-fe-md-links\src\mdFile.js">
       <metrics statements="51" coveredstatements="51" conditionals="18" coveredconditionals="17" methods="14" coveredmethods="14"/>
