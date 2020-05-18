@@ -244,10 +244,10 @@ pendientes de tu proyecto anterior.
 
 ### Javascript
 - [ ] Uso de callbacks
-- [ ] Consumo de Promesas
-- [ ] Creacion de Promesas
-- [ ] Modulos de Js
-- [ ] Recursión
+- [x] Consumo de Promesas
+- [x] Creacion de Promesas
+- [x] Modulos de Js
+- [x] Recursión
 
 ### Node
 - [x] Sistema de archivos
@@ -265,11 +265,11 @@ pendientes de tu proyecto anterior.
 - [ ] Testeo para multiples Sistemas Operativos
 
 ### Git y Github
-- [ ] Organización en Github
+- [x] Organización en Github
 
 ### Buenas prácticas de desarrollo
-- [ ] Modularización
-- [ ] Nomenclatura / Semántica
+- [x] Modularización
+- [x] Nomenclatura / Semántica
 - [ ] Linting
 
 ***
