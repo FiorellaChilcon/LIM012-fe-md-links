@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const fetch = require('node-fetch');
 
 const validateLinks = (object) => fetch(object.href).then((res) => {

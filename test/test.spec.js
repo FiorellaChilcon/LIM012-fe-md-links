@@ -12,70 +12,69 @@ describe('mdLinks', () => {
             href: 'https://www.youtube.com/',
             text: 'video de youtube',
             status: 200,
-            statusText: 'ok'
+            statusText: 'ok',
           },
           {
             file: 'test/folderToTest/example/hi.md',
             href: 'https://stackoverflow.com/quesl',
             text: 'stackoverflow',
             status: 404,
-            statusText: 'fail'
+            statusText: 'fail',
           },
           {
             file: 'test/folderToTest/example/hi.md',
             href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
             text: 'regex',
             status: 200,
-            statusText: 'ok'
+            statusText: 'ok',
           },
           {
             file: 'test/folderToTest/example/hi.md',
             href: 'https://github.com/nodeca/pica',
             text: 'github page',
             status: 200,
-            statusText: 'ok'
+            statusText: 'ok',
           },
           {
             file: 'test/folderToTest/example/otherfile.md',
-            href: 'este file no contiene links'
+            href: 'este file no contiene links',
           },
           {
             file: 'test/folderToTest/mark.md',
-            href: 'este file no contiene links'
-          }
-        ]);
-      done();
-    })
-  });
-  it('deberia devolver un arreglo de objetos, donde cada objeto representa un link', (done) => {
-    return mdLinks('test/folderToTest/example/hi.md').then((response) => {
-      expect(response).toEqual(
-        [
-          {
-            file: 'test/folderToTest/example/hi.md',
-            href: 'https://www.youtube.com/',
-            text: 'video de youtube'
+            href: 'este file no contiene links',
           },
-          {
-            file: 'test/folderToTest/example/hi.md',
-            href: 'https://stackoverflow.com/quesl',
-            text: 'stackoverflow'
-          },
-          {
-            file: 'test/folderToTest/example/hi.md',
-            href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
-            text: 'regex'
-          },
-          {
-            file: 'test/folderToTest/example/hi.md',
-            href: 'https://github.com/nodeca/pica',
-            text: 'github page'
-          }
-        ]
+        ],
       );
       done();
-    })
+    });
   });
+  it('deberia devolver un arreglo de objetos', (done) => mdLinks('test/folderToTest/example/hi.md').then((response) => {
+    expect(response).toEqual(
+      [
+        {
+          file: 'test/folderToTest/example/hi.md',
+          href: 'https://www.youtube.com/',
+          text: 'video de youtube',
+        },
+        {
+          file: 'test/folderToTest/example/hi.md',
+          href: 'https://stackoverflow.com/quesl',
+          text: 'stackoverflow',
+        },
+        {
+          file: 'test/folderToTest/example/hi.md',
+          href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
+          text: 'regex',
+        },
+        {
+          file: 'test/folderToTest/example/hi.md',
+          href: 'https://github.com/nodeca/pica',
+          text: 'github page',
+        },
+      ],
+    );
+    done();
+  }));
   it('deberia devolver un arreglo de objetos, donde cada objeto representa un link con su validacion', () => {
     expect.assertions(1);
     return mdLinks('test/folderToTest/example/hi.md', { validate: true }).then((response) => {
@@ -86,35 +85,36 @@ describe('mdLinks', () => {
             href: 'https://www.youtube.com/',
             text: 'video de youtube',
             status: 200,
-            statusText: 'ok'
+            statusText: 'ok',
           },
           {
             file: 'test/folderToTest/example/hi.md',
             href: 'https://stackoverflow.com/quesl',
             text: 'stackoverflow',
             status: 404,
-            statusText: 'fail'
+            statusText: 'fail',
           },
           {
             file: 'test/folderToTest/example/hi.md',
             href: 'https://www.mpi.nl/corpus/html/trova/ch01s04.html',
             text: 'regex',
             status: 200,
-            statusText: 'ok'
+            statusText: 'ok',
           },
           {
             file: 'test/folderToTest/example/hi.md',
             href: 'https://github.com/nodeca/pica',
             text: 'github page',
             status: 200,
-            statusText: 'ok'
-          }
-        ])
-    })
+            statusText: 'ok',
+          },
+        ],
+      );
+    });
   });
   it('deberia regresar el error cuando se pone una direccion inexistente', () => {
-    const error = new Error('No existe el archivo o directorio');
-    return expect(mdLinks('./some/error.md', { validate: true })).rejects.toEqual(error);
+    const error = 'No existe el archivo o directorio';
+    return expect(mdLinks('./some/error.md', { validate: true })).rejects.toThrowError(new Error(error));
   });
   it('deberia regresar el error cuando se pone una direccion existente que no contiene markdown files', () => {
     const error = new Error('El folder no contiene ningun archivo markdown');

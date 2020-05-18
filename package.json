@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "chalk": "^4.0.0",
+    "eslint-plugin-jest": "^23.13.1",
     "node-fetch": "^2.6.0"
   }
 }

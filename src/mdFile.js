@@ -1,21 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 
-const numberOfLinks = (arrfiles) => {
-  return new Promise((resolve, reject) => {
-    const result = arrfiles.map((element) => {
-      const regex = /\[(.*)\]\(((?!#).+)\)/gi;
-      const content = fs.readFileSync(element, 'utf8');
-      let mdLinks = content.match(regex);
-      if (mdLinks === null) { mdLinks = 0; }
-      return [mdLinks, element];
-    });
-    if (result[0][0] === 0 && arrfiles.length === 1) {
-      reject(new Error('El file no contiene ningun link'));
-    }
-    resolve(result);
+const numberOfLinks = (arrfiles) => new Promise((resolve, reject) => {
+  const result = arrfiles.map((element) => {
+    const regex = /\[(.*)\]\(((?!#).+)\)/gi;
+    const content = fs.readFileSync(element, 'utf8');
+    let mdLinks = content.match(regex);
+    if (mdLinks === null) { mdLinks = 0; }
+    return [mdLinks, element];
   });
-};
+  if (result[0][0] === 0 && arrfiles.length === 1) {
+    reject(new Error('El file no contiene ningun link'));
+  }
+  resolve(result);
+});
 const getProperties = (arrMatches) => {
   const result = [];
   arrMatches.forEach((arr) => {
@@ -56,27 +54,21 @@ const walk = (dir) => {
   });
   return result;
 };
-module.exports = (filePath) => {
-  return new Promise((resolve, reject) => {
-    if (fs.statSync(filePath).isFile()) {
-      if (path.extname(filePath) !== '.md') {
-        reject(new Error('El archivo no es de formato markdown'));
-      }
-      resolve([filePath]);
-    } else {
-      const getFile = new Promise((resolve2, reject2) => {
-        const files = walk(filePath).filter((file) => path.extname(file) === '.md');
-        if (files.length !== 0) {
-          resolve2(files);
-        } else {
-          reject2(new Error('El folder no contiene ningun archivo markdown'));
-        }
-      });
-      resolve(getFile);
+module.exports = (filePath) => new Promise((resolve, reject) => {
+  if (fs.statSync(filePath).isFile()) {
+    if (path.extname(filePath) !== '.md') {
+      reject(new Error('El archivo no es de formato markdown'));
     }
-  }).then((mdFiles) => {
-    return numberOfLinks(mdFiles);
-  }).then((result) => {
-    return getProperties(result);
-  });
-};
+    resolve([filePath]);
+  } else {
+    const getFile = new Promise((resolve2, reject2) => {
+      const files = walk(filePath).filter((file) => path.extname(file) === '.md');
+      if (files.length !== 0) {
+        resolve2(files);
+      } else {
+        reject2(new Error('El folder no contiene ningun archivo markdown'));
+      }
+    });
+    resolve(getFile);
+  }
+}).then((mdFiles) => numberOfLinks(mdFiles)).then((result) => getProperties(result));
