@@ -3,7 +3,7 @@ const mdLinks = require('../src/mdLinks.js');
 
 describe('mdLinks', () => {
   it('deberia devolver un arreglo de objetos, donde cada objeto representa un link', (done) => {
-    const pathFolder = path.join(process.cwd(), 'test\\folderToTest');
+    const pathFolder = path.join(process.cwd(), 'test/folderToTest');
     return mdLinks(pathFolder, { validate: true }).then((response) => {
       expect(response).toEqual(
         [

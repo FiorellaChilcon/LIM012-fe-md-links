@@ -1,5 +1,5 @@
 TN:
-SF:src\mdFile.js
+SF:src/mdFile.js
 FN:4,(anonymous_0)
 FN:4,(anonymous_1)
 FN:5,(anonymous_2)
@@ -86,8 +86,8 @@ BRDA:12,1,0,1
 BRDA:12,1,1,3
 BRDA:12,2,0,4
 BRDA:12,2,1,1
-BRDA:21,3,0,0
-BRDA:21,3,1,5
+BRDA:21,3,0,5
+BRDA:21,3,1,0
 BRDA:22,4,0,2
 BRDA:22,4,1,3
 BRDA:49,5,0,8
@@ -102,7 +102,7 @@ BRF:18
 BRH:17
 end_of_record
 TN:
-SF:src\mdLinks.js
+SF:src/mdLinks.js
 FN:6,(anonymous_0)
 FN:7,(anonymous_1)
 FN:7,(anonymous_2)
@@ -145,7 +145,7 @@ BRF:8
 BRH:8
 end_of_record
 TN:
-SF:src\validate.js
+SF:src/validate.js
 FN:4,(anonymous_0)
 FN:4,(anonymous_1)
 FN:9,(anonymous_2)
