@@ -2,7 +2,7 @@
 
 > Lee y analiza archivos en formato Markdown, para verificar los links que contengan y reportar algunas estadísticas.
 
-![Frame 6-2](https://user-images.githubusercontent.com/58056552/89219681-dba3a600-d595-11ea-995c-bb0569436d60.png)
+![mdLinks](https://user-images.githubusercontent.com/58056552/89220070-9a5fc600-d596-11ea-86e2-3b5441918512.png)
 
 __Content__
 - [Install](#install)
